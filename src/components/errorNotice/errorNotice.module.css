@@ -1,0 +1,27 @@
+.ErrorWrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    font-family: 'Reem Kufi', sans-serif;
+}
+.ErrorWrapper h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.ErrorDetailes {
+    max-width: 40%;
+    text-align: center;
+}
+
+.ErrorDetailes p {
+    font-size: 1.2rem;
+    white-space: normal;
+}
+
+@media only screen and (max-width:600px) {
+    .ErrorWrapper {
+        flex-direction: column;
+    }
+}

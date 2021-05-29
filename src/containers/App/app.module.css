@@ -1,0 +1,17 @@
+.AppMain {
+    height: 640px;
+    padding: .5rem 1.5rem;
+    margin: 0;
+    background-color:#ffffff;
+}
+
+.AppWrapper {
+    margin: 0;
+    padding: 0;
+}
+
+@media only screen and (min-width:600px) {
+    .AppMain {
+        height: 460px;
+    }
+}

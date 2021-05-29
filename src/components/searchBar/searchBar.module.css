@@ -1,0 +1,6 @@
+.SearchBar {
+    position: relative;
+    margin: 30px auto;
+    width: 100%;
+    max-width: 280px;
+}

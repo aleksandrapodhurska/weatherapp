@@ -1,0 +1,30 @@
+.InputField {
+    border-bottom: 1px solid #929292;
+}
+
+.InputField label {
+    color: #606060;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.InputField input {
+    display: block;
+    margin-top: .5rem;
+    padding: 0;
+    max-width: 280px;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    font-size: 1.725rem;
+    line-height: 2;
+    font-family: 'Roboto', sans-serif;
+}
+
+.InputField input::placeholder {
+    color: #929292a9;
+}
+
+.InputField input:focus {
+    outline: none;
+}

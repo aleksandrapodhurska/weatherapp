@@ -1,0 +1,15 @@
+.Header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 2.5rem;
+    height: 100%;
+    padding: .5rem 1.5rem;
+    background-color: lightgray;
+}
+
+@media only screen and (min-width:600px) {
+    .Header {
+        justify-content: center;
+    }
+}
