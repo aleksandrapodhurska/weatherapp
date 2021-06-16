@@ -1,9 +1,9 @@
 import React from 'react';
 import classes from './weatherDetailes.module.css';
 
-const Weather = (props) => {
+const Weather = ({weather}) => {
     return(
-        <div className={classes.Weather}>Sunny</div>
+        <div className={classes.Weather}>{weather}</div>
     )
 }
 export default Weather;

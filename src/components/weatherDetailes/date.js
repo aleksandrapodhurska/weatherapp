@@ -1,9 +1,12 @@
 import React from 'react';
 import classes from './weatherDetailes.module.css';
 
-const Date = (props) => {
+const WeekDayDate = ({dt}) => {
+    
+    const date = new Date();
+
     return(
-        <div className={classes.Date}>28 May 2021</div>
+        <div className={classes.Date}>{date.toDateString(dt)}</div>
     )
 }
-export default Date;
+export default WeekDayDate;

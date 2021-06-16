@@ -9,9 +9,14 @@ const Button = (props) => {
 
     return(
         <div className={buttonClasses.join(' ')}>
-            <button type={props.type} name={props.name}>{props.children}</button>
+            <button
+                type={props.type}
+                name={props.name}
+                onClick={props.onClick}
+                >
+                    {props.children}
+            </button>   
         </div>
-        
     )
 }
 

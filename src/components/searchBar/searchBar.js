@@ -5,10 +5,27 @@ import Button from '../../elements/button/button';
 import classes from './searchBar.module.css';
 
 const SearchBar = (props) => {
+
+    
     return(
         <div className={classes.SearchBar}>
-            <InputField/>
-            <Button name="searchSubmit" type="submit" position="onForm">set</Button>
+            <InputField
+                defaultValue=""
+                type="text"
+                name="city"
+                id="city"
+                placeholder="enter a city"
+                required
+                onChange={props.listenChange}
+            />
+            <Button
+                name="searchSubmit"
+                type="submit"
+                position="onForm"
+                onClick={props.onClick} 
+                >
+                    set
+            </Button>
         </div>
         
     )
