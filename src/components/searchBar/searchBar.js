@@ -1,34 +1,27 @@
-import React from 'react';
-import InputField from '../../elements/inputField/inputField';
-import Button from '../../elements/button/button';
+import React from "react";
+import InputField from "../../elements/inputField/inputField";
+import Button from "../../elements/button/button";
 
-import classes from './searchBar.module.css';
+import classes from "./searchBar.module.css";
 
-const SearchBar = (props) => {
-
-    
-    return(
-        <div className={classes.SearchBar}>
-            <InputField
-                defaultValue=""
-                type="text"
-                name="city"
-                id="city"
-                placeholder="enter a city"
-                required
-                onChange={props.listenChange}
-            />
-            <Button
-                name="searchSubmit"
-                type="submit"
-                position="onForm"
-                onClick={props.onClick} 
-                >
-                    set
-            </Button>
-        </div>
-        
-    )
-}
+const SearchBar = ({ value, setInput, onClick }) => {
+	return (
+		<div className={classes.SearchBar}>
+			<InputField
+				value={value}
+				placeholder="enter a city"
+				required
+				setInput={setInput}
+			/>
+			<Button
+				name="searchSubmit"
+				type="submit"
+				position="onForm"
+				onClick={onClick}
+				children="set"
+			></Button>
+		</div>
+	);
+};
 
 export default SearchBar;

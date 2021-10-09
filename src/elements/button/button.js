@@ -1,23 +1,19 @@
-import React from 'react';
-import classes from './button.module.css';
+import React from "react";
+import classes from "./button.module.css";
 
-const Button = (props) => {
-    let buttonClasses = [
-        classes.Button,
-        (props.position === 'onForm') ? classes.ButtonForm : null
-    ];
+const Button = ({ position, type, name, onClick, children }) => {
+	let buttonClasses = [
+		classes.Button,
+		position === "onForm" ? classes.ButtonForm : null,
+	];
 
-    return(
-        <div className={buttonClasses.join(' ')}>
-            <button
-                type={props.type}
-                name={props.name}
-                onClick={props.onClick}
-                >
-                    {props.children}
-            </button>   
-        </div>
-    )
-}
+	return (
+		<div className={buttonClasses.join(" ")}>
+			<button type={type} name={name} onClick={onClick}>
+				{children}
+			</button>
+		</div>
+	);
+};
 
 export default Button;
