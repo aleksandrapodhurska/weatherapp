@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 const useFetch = (city) => {
-	const API_KEY = "6a151709d9ecc3705d82721e7e2c2740";
+	const API_KEY = "";
 
 	const [data, setData] = useState({});
 	const [error, setError] = useState(null);
