@@ -3,6 +3,7 @@ This is a simple responsive weather app in ReactJS that uses OpenWeather API.
 To run a project call npm i, npm run build and node server.js.
 Weather icon is picked according to the type of weather forecast and to the local time (day/night).
 
+https://myweather-react-app.netlify.app/
 
 <div>
 <img width="400" alt="start_page" src="https://user-images.githubusercontent.com/35921408/175354023-9601799b-04f2-43a8-b459-086da1ec472a.png">
