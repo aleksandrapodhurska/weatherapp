@@ -12,15 +12,28 @@ import rainNight from "../../assets/svg/013-rain.svg";
 import haze from "../../assets/svg/036-fog.svg";
 import def from "../../assets/svg/049-thermometer.svg";
 
-const Icon = ({ weather, sunrise, sunset }) => {
+const convertToHours = (timestamp, timezone) => {
+	const date = new Date(timestamp * 1000);
+	return new Date(date.getTime() + timezone * 1000).getUTCHours();
+};
+
+const getLocalHours = (timestamp) => {
+	const utcTime = new Date();
+	return new Date(utcTime.getTime() + timestamp * 1000).getUTCHours();
+};
+
+const isDayTime = (sunrise, sunset, timezone) => {
+	let sunriseHour = convertToHours(sunrise, timezone);
+	let sunsetHour = convertToHours(sunset, timezone);
+
+	if (getLocalHours(timezone) >= sunriseHour && getLocalHours(timezone) <= sunsetHour) {
+		return true;
+	}
+	return false;
+};
+const Icon = ({ weather, sunrise, sunset, timezone }) => {
 	const icon = () => {
-		let time = new Date().getHours();
-		let daytime;
-		if (time > sunrise && time < sunset) {
-			daytime = true;
-		} else {
-			daytime = false;
-		}
+		let daytime = isDayTime(sunrise, sunset, timezone);
 
 		switch (weather) {
 			case "Sun":
