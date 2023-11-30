@@ -1,18 +1,36 @@
 import React, { useState, useEffect } from "react";
+import dotenv from 'dotenv';
 
+dotenv.config();
 const useFetch = (city) => {
-	const API_KEY = "";
+	const API_KEY = process.env.REACT_APP_API_KEY;
 
+	let lat, lon = 0;
 	const [data, setData] = useState({});
 	const [error, setError] = useState(null);
 	const [isPending, setIsPending] = useState(true);
-
+	
 	useEffect(() => {
 		if (city) {
 			setIsPending(true);
+			// Prep step - call to Geocoding API
 			fetch(
-				`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`
+				`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${API_KEY}`
 			)
+				.then((res) => {
+					if (!res.ok) {
+						throw Error("Could not get data...");
+					}
+					return res.json();
+				})
+				.then((data) => {
+					lat = data[0].lat;
+					lon = data[0].lon;
+				})
+				.then(()=> {
+					// start actual fetching of weather data
+					return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`);
+				})
 				.then((res) => {
 					if (!res.ok) {
 						throw Error("Could not get data...");
